@@ -5,7 +5,7 @@ import styles from './Pyramid.css';
 import Header from './Header';
 import Payment from './Payment';
 import Message from './Message';
-
+let number = 1000;
 const image = pyramidImage;
 class App extends Component {
 
@@ -20,6 +20,10 @@ class App extends Component {
   }
   submitForm = (event) => {
     event.preventDefault();
+    number = number + 200;
+    console.log(event.target.previousSibling.firstChild);
+    const image = event.target.previousSibling.firstChild;
+    image.style['box-shadow'] = `inset  0 ${number - 800 + 100}px ${number}px red`;
     fetch('https://ron-swanson-quotes.herokuapp.com/v2/quotes')
       .then(res => {
         return res.json();
