@@ -1,0 +1,15 @@
+.Pyramid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+    margin: 0 auto;
+    box-shadow: 200px 200px red;
+}
+
+img {
+    max-height: 100%;
+    max-width: 100%;
+    background-color: black;
+    box-shadow: inset  0 200px 1000px white;
+}

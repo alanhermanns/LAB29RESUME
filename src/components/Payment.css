@@ -1,0 +1,20 @@
+form{
+    position: relative;
+    top: -375px;
+    left: 40%;
+    box-shadow: 0 4px 8px 0 white, 0 6px 20px 0 white;
+        button{
+            background-color:black;
+            border-bottom: 2px solid black;
+            border-left: 2px solid white;
+            color: white;
+            font-weight: 100;
+            font-family: cursive;
+            position: relative;
+            top: -1px;
+
+        }
+        input{
+            border: 3px solid white;
+        }
+}

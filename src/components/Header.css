@@ -1,0 +1,9 @@
+h1{
+    position: relative;
+    bottom: -200px; 
+    left: 100px;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-shadow: 0 5px 50px black;
+    
+}
