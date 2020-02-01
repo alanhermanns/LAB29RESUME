@@ -38,6 +38,7 @@ class App extends Component {
       .then(response => {
         Promise.resolve(this.setState(state => ({ Message : JSON.stringify(response) })))
           .then(() => {
+            console.log(this.state.Message);
             emailjs.send('gmail', template, {
               to_name: 'me',
               name: 'ME',
