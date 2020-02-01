@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
+import emailjs from 'emailjs-com';
 import Pyramid from './Pyramid';
 import pyramidImage from '../assets/Pyramid.png';
 import styles from './Pyramid.css';
 import Header from './Header';
 import Payment from './Payment';
 import Message from './Message';
+const template = process.env.TEMPLATE;
+console.log(template);
+const secret = process.env.SECRET;
+
 let number = 1000;
 const image = pyramidImage;
 class App extends Component {
 
   state = {
     Message: '',
-    text: ''
+    text: '',
+    email: 'alan.hermanns.the.first@gmail.com',
+
   }
   changeText = event => {
     event.preventDefault();
@@ -29,7 +36,19 @@ class App extends Component {
         return res.json();
       })
       .then(response => {
-        this.setState(state => ({ Message : JSON.stringify(response) }));
+        Promise.resolve(this.setState(state => ({ Message : JSON.stringify(response) })))
+          .then(() => {
+            emailjs.send('gmail', template, {
+              to_name: 'me',
+              name: 'ME',
+              email: this.state.email,
+              message: this.state.Message }, secret)
+              .then((result) => {
+                console.log(result.text);
+              }, (error) => {
+                console.log(error.text);
+              });
+          });
       });
   }
 

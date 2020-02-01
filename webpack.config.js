@@ -1,8 +1,9 @@
 const HtmlPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 // eslint-disable-next-line
-module.exports = {
+module.exports =  {
   entry: './src/index.js',
   output: {
     filename: 'bundle.[hash].js',
@@ -14,7 +15,8 @@ module.exports = {
   },
   plugins: [
     new HtmlPlugin({ template: './src/index.html' }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new Dotenv()
   ],
   module: {
     rules: [
@@ -66,3 +68,4 @@ module.exports = {
     ]
   }
 };
+
