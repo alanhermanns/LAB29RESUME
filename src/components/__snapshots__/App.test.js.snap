@@ -5,3 +5,5 @@ exports[`App component renders App 1`] = `
   Hello World
 </h1>
 `;
+
+//for pull-- might implement state.text = email to send
