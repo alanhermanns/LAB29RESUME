@@ -9,7 +9,7 @@ import Message from './Message';
 const template = process.env.TEMPLATE;
 console.log(template);
 const secret = process.env.SECRET;
-
+const mailSecret = process.env.MAILSECRET;
 let number = 1000;
 const image = pyramidImage;
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
   state = {
     Message: '',
     text: '',
-    email: 'alan.hermanns.the.first@gmail.com',
+    email: mailSecret,
 
   }
   changeText = event => {
