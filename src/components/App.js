@@ -7,7 +7,6 @@ import Header from './Header';
 import Payment from './Payment';
 import Message from './Message';
 const template = process.env.TEMPLATE;
-console.log(template);
 const secret = process.env.SECRET;
 const mailSecret = process.env.MAILSECRET;
 let number = 1000;
@@ -28,7 +27,6 @@ class App extends Component {
   submitForm = (event) => {
     event.preventDefault();
     number = number + 200;
-    console.log(event.target.previousSibling.firstChild);
     const image = event.target.previousSibling.firstChild;
     image.style['box-shadow'] = `inset  0 ${number - 800 + 100}px ${number}px red`;
     fetch('https://ron-swanson-quotes.herokuapp.com/v2/quotes')
@@ -38,16 +36,14 @@ class App extends Component {
       .then(response => {
         Promise.resolve(this.setState(state => ({ Message : JSON.stringify(response) })))
           .then(() => {
-            console.log(this.state.Message);
             emailjs.send('gmail', template, {
               to_name: 'me',
               name: 'ME',
               email: this.state.email,
               message: this.state.Message }, secret)
               .then((result) => {
-                console.log(result.text);
               }, (error) => {
-                console.log(error.text);
+                console.log(error);
               });
           });
       });

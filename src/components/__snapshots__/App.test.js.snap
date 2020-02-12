@@ -1,7 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App component renders App 1`] = `
-<h1>
-  Hello World
-</h1>
+<Fragment>
+  <Header />
+  <Pyramid
+    image="/path/image"
+  />
+  <Payment
+    onChange={[Function]}
+    onSubmit={[Function]}
+  />
+  <Message
+    text=""
+  />
+</Fragment>
 `;
